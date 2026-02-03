@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naveen Kumar | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero span {
+            color: #00e5ff;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            padding: 12px 28px;
+            margin: 10px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: #00bcd4;
+        }
+
+        .btn-outline {
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .btn-outline:hover {
+            background-color: #00e5ff;
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NAVEEN KUMAR S</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Hi, I'm <span>Naveen Kumar</span></h2>
+    <p>
+        A passionate IT student who loves building clean web interfaces,
+        solving coding problems, and continuously learning new technologies.
+    </p>
+
+    <div class="buttons">
+        <a href="portfolio.html" class="btn-primary">View Projects</a>
+        <a href="contact.html" class="btn-outline">Contact Me</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Naveen Kumar | Built with ❤️ using HTML & CSS
+</footer>
+
+</body>
+</html>
