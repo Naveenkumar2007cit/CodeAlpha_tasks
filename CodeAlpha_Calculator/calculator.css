@@ -1,0 +1,140 @@
+/* -------- ABOUT PAGE -------- */
+
+.about-body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.about-card {
+    background: #ffffff;
+    width: 460px;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.about-card h1 {
+    margin-bottom: 5px;
+}
+
+.about-card h2 {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.features ul {
+    text-align: left;
+    padding-left: 0;
+}
+
+.features li {
+    list-style: none;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.features span {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.tech {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.enter-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.enter-btn:hover {
+    background: #059669;
+}
+
+/* -------- CALCULATOR -------- */
+
+body:not(.about-body) {
+    background: #111;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 320px;
+    height: 640px;
+    background: #dcdcdc;
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: inset 0 0 6px #aaa, 0 20px 40px #000;
+}
+
+.top {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.svpam {
+    color: #c9a400;
+    font-size: 13px;
+}
+
+.solar {
+    height: 30px;
+    background: #3a1c1c;
+    margin: 6px 0;
+    border-radius: 4px;
+}
+
+#display {
+    width: 100%;
+    height: 55px;
+    font-size: 22px;
+    background: #e8f5e4;
+    border: 2px solid #333;
+    text-align: right;
+    padding: 6px;
+}
+
+.keys {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+button {
+    height: 38px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+.shift { background: #f4d03f; }
+.alpha { background: #f1948a; }
+.op { background: #bfbfbf; }
+.equal { background: #2ecc71; color: white; }
+.ac { background: #e74c3c; color: white; }
+.del { background: #d35400; color: white; }
+.on { background: #7f8c8d; color: white; }
