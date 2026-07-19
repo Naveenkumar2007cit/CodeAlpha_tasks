@@ -54,10 +54,45 @@ const data = [
 let visibleCount = 30;
 let currentIndex = 0;
 let currentFilter = 'all';
+let searchQuery = '';
+let currentSort = 'default';
 let filteredData = [];
 
 const gallery = document.getElementById("gallery");
 const filterBtns = document.querySelectorAll('.filter-btn');
+const searchInput = document.getElementById("searchInput");
+const sortSelect = document.getElementById("sortSelect");
+const themeToggle = document.getElementById("themeToggle");
+const loadMoreBtn = document.getElementById("loadMore");
+
+// Theme management
+function initTheme() {
+    const savedTheme = localStorage.getItem('gallery-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const activeTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('gallery-theme', newTheme);
+    });
+}
+
+// Keyboard Navigation
+function initKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById("lightbox");
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowLeft") {
+                changeImage(-1);
+            } else if (e.key === "ArrowRight") {
+                changeImage(1);
+            } else if (e.key === "Escape") {
+                closeLightbox();
+            }
+        }
+    });
+}
 
 function initFilter() {
     filterBtns.forEach(btn => {
@@ -65,36 +100,79 @@ function initFilter() {
             filterBtns.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             currentFilter = e.target.dataset.filter;
-            applyFilter();
             visibleCount = 30;
-            document.getElementById("loadMore").style.display = filteredData.length > 30 ? "inline-block" : "none";
-            render();
+            updateGallery();
         });
     });
 }
 
-function applyFilter() {
-    filteredData = data.filter(item => currentFilter === 'all' || item[2] === currentFilter);
+function initSearchAndSort() {
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        visibleCount = 30;
+        updateGallery();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        updateGallery();
+    });
+}
+
+function updateGallery() {
+    // 1. Filter by category
+    let result = data.filter(item => currentFilter === 'all' || item[2] === currentFilter);
+
+    // 2. Filter by search query
+    if (searchQuery) {
+        result = result.filter(item => item[0].toLowerCase().includes(searchQuery));
+    }
+
+    // 3. Sort
+    if (currentSort === 'asc') {
+        result.sort((a, b) => a[0].localeCompare(b[0]));
+    } else if (currentSort === 'desc') {
+        result.sort((a, b) => b[0].localeCompare(a[0]));
+    }
+
+    filteredData = result;
+
+    // Adjust load more visibility
+    if (filteredData.length > visibleCount) {
+        loadMoreBtn.style.display = "inline-block";
+    } else {
+        loadMoreBtn.style.display = "none";
+    }
+
+    render();
 }
 
 function render() {
     gallery.innerHTML = "";
+    if (filteredData.length === 0) {
+        gallery.innerHTML = `<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No images found matching your search.</div>`;
+        return;
+    }
+    
     filteredData.slice(0, visibleCount).forEach((d, i) => {
         const card = document.createElement("div");
         card.className = `card category-${d[2]}`;
         card.onclick = () => openLightbox(i);
         card.innerHTML = `
             <img src="${d[1]}" alt="${d[0]}" loading="lazy">
-            <div class="overlay">${d[0]}</div>
+            <div class="overlay">
+                <span>${d[0]}</span>
+                <span style="font-size: 11px; text-transform: uppercase; background: var(--accent-color); color: #fff; padding: 2px 8px; border-radius: 10px;">${d[2]}</span>
+            </div>
         `;
         gallery.appendChild(card);
     });
 }
 
+// Already declared in original file
 function loadMoreImages() {
-    visibleCount = 50;
-    document.getElementById("loadMore").style.display = "none";
-    render();
+    visibleCount += 20;
+    updateGallery();
 }
 
 function openLightbox(i) {
@@ -113,19 +191,21 @@ function changeImage(step) {
 }
 
 function updateLightbox() {
-    document.getElementById("lightboxImg").src = filteredData[currentIndex][1];
-    document.getElementById("lightboxImg").alt = filteredData[currentIndex][0];
-    document.getElementById("caption").textContent = `${filteredData[currentIndex][0]} (${filteredData[currentIndex][2]})`;
+    const lightboxImg = document.getElementById("lightboxImg");
+    lightboxImg.style.opacity = 0;
+    
+    // Add smooth transition effect on image change inside lightbox
+    setTimeout(() => {
+        lightboxImg.src = filteredData[currentIndex][1];
+        lightboxImg.alt = filteredData[currentIndex][0];
+        document.getElementById("caption").textContent = `${filteredData[currentIndex][0]} (${filteredData[currentIndex][2].toUpperCase()})`;
+        lightboxImg.style.opacity = 1;
+    }, 150);
 }
 
-const colors = ["#0f2027","#1a1a2e","#16213e","#0b132b","#2c5364"];
-let colorIndex = 0;
-
-setInterval(() => {
-    document.body.style.background = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-}, 5000);
-
-applyFilter();
-render();
+// Initializations
+initTheme();
+initKeyboardNav();
 initFilter();
+initSearchAndSort();
+updateGallery();

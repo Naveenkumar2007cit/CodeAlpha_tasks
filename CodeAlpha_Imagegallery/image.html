@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image gallery</title>
+    <title>Premium Image Gallery</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="image.css">
 </head>
 <body>
 <header>
-    <h1>Image Gallery</h1>
+    <div class="header-top">
+        <h1>Glassmorphic Gallery</h1>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </div>
     <p>Explore 50 beautiful images across various topics</p>
 </header>
+
+<div class="search-sort-container">
+    <div class="search-box">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Search images by name...">
+    </div>
+    <div class="sort-box">
+        <label for="sortSelect">Sort:</label>
+        <select id="sortSelect">
+            <option value="default">Default</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+    </div>
+</div>
+
 <div class="filters">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="nature">Nature</button>
@@ -20,15 +46,26 @@
     <button class="filter-btn" data-filter="travel">Travel</button>
     <button class="filter-btn" data-filter="sports">Sports</button>
 </div>
-<section class="gallery" id="gallery"></section>
-<button id="loadMore" onclick="loadMoreImages()">Click here to view more images (20 more)</button>
+
+<main class="gallery-wrapper">
+    <section class="gallery" id="gallery"></section>
+    <div class="load-more-wrapper">
+        <button id="loadMore" onclick="loadMoreImages()">Load More Images</button>
+    </div>
+</main>
+
 <div class="lightbox" id="lightbox">
-    <span class="close" onclick="closeLightbox()">×</span>
-    <span class="nav prev" onclick="changeImage(-1)">❮</span>
-    <img id="lightboxImg">
-    <p id="caption"></p>
-    <span class="nav next" onclick="changeImage(1)">❯</span>
+    <div class="lightbox-content">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <button class="nav prev" onclick="changeImage(-1)" aria-label="Previous image">❮</button>
+        <div class="lightbox-img-wrapper">
+            <img id="lightboxImg" alt="">
+            <p id="caption"></p>
+        </div>
+        <button class="nav next" onclick="changeImage(1)" aria-label="Next image">❯</button>
+    </div>
 </div>
+
 <script src="image.js"></script>
 </body>
 </html>
