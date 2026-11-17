@@ -2,64 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scientific Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator fx-991MS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="calculator.css">
 </head>
-<body>
+<body class="calc-body">
 
-<div class="calculator">
-
-    <div class="top">
-        <div class="model">Scientific Calculator</div>
-        <div class="svpam">S-V.P.A.M Style</div>
+<div class="calculator-container">
+    <div class="top-nav-bar">
+        <a href="index.html" class="nav-back-link">← Overview</a>
+        <span class="calc-brand">CASIO <em>fx-991MS</em></span>
+        <button id="muteBtn" class="mute-btn" title="Toggle Button Click Sound" onclick="toggleMute()">🔊</button>
     </div>
 
-    <div class="solar"></div>
+    <div class="calculator">
+        <!-- Top branding & solar cell -->
+        <div class="calc-header">
+            <div class="calc-info">
+                <span class="brand-title">SCIENTIFIC CALCULATOR</span>
+                <span class="svpam-badge">S-V.P.A.M.</span>
+                <span class="sub-text">TWO WAY POWER</span>
+            </div>
+            <div class="solar-panel" title="Solar Cell Array">
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+            </div>
+        </div>
 
-    <input type="text" id="display" disabled>
+        <!-- Authentic LCD screen with status indicators -->
+        <div class="screen-frame">
+            <div class="lcd-screen">
+                <div class="lcd-status-bar">
+                    <span id="degIndicator" class="active">DEG</span>
+                    <span id="radIndicator">RAD</span>
+                    <span id="mIndicator">M</span>
+                    <span id="shiftIndicator">S</span>
+                </div>
+                <div class="lcd-expression" id="exprDisplay">0</div>
+                <div class="lcd-result" id="resultDisplay"></div>
+            </div>
+        </div>
 
-    <div class="keys">
-        <button class="shift">SHIFT</button>
-        <button class="alpha">ALPHA</button>
-        <button onclick="toggleMode()">MODE</button>
-        <button class="on" onclick="clearAll()">ON</button>
+        <!-- Keypad -->
+        <div class="keypad">
+            <!-- Row 1: Function Control Keys -->
+            <button class="key key-shift" onclick="toggleShift()">SHIFT</button>
+            <button class="key key-alpha" onclick="toggleAlpha()">ALPHA</button>
+            <button class="key key-mode" onclick="toggleAngleMode()">MODE</button>
+            <button class="key key-on" onclick="resetCalculator()">ON</button>
 
-        <button onclick="append('Math.sqrt(')">√</button>
-        <button onclick="append('**2')">x²</button>
-        <button onclick="append('**')">xʸ</button>
-        <button onclick="append('Math.log10(')">log</button>
+            <!-- Row 2: Scientific operations -->
+            <button class="key key-fn" onclick="inputFunc('sqrt')">√</button>
+            <button class="key key-fn" onclick="inputPow(2)">x²</button>
+            <button class="key key-fn" onclick="inputPow('y')">xʸ</button>
+            <button class="key key-fn" onclick="inputFunc('log10')">log</button>
 
-        <button onclick="append('Math.log(')">ln</button>
-        <button onclick="append('(')">(</button>
-        <button onclick="append(')')">)</button>
-        <button onclick="append('1/')">x⁻¹</button>
+            <!-- Row 3: Math functions -->
+            <button class="key key-fn" onclick="inputFunc('ln')">ln</button>
+            <button class="key key-fn" onclick="inputChar('(')">(</button>
+            <button class="key key-fn" onclick="inputChar(')')">)</button>
+            <button class="key key-fn" onclick="inputInverse()">x⁻¹</button>
 
-        <button onclick="trig('sin')">sin</button>
-        <button onclick="trig('cos')">cos</button>
-        <button onclick="trig('tan')">tan</button>
-        <button class="del" onclick="deleteLast()">DEL</button>
+            <!-- Row 4: Trigonometry & DEL -->
+            <button class="key key-fn" onclick="inputTrig('sin')">sin</button>
+            <button class="key key-fn" onclick="inputTrig('cos')">cos</button>
+            <button class="key key-fn" onclick="inputTrig('tan')">tan</button>
+            <button class="key key-del" onclick="deleteChar()">DEL</button>
 
-        <button onclick="recallAns()">Ans</button>
-        <button onclick="append('7')">7</button>
-        <button onclick="append('8')">8</button>
-        <button onclick="append('9')">9</button>
+            <!-- Row 5: 7 8 9 and AC -->
+            <button class="key key-num" onclick="inputChar('7')">7</button>
+            <button class="key key-num" onclick="inputChar('8')">8</button>
+            <button class="key key-num" onclick="inputChar('9')">9</button>
+            <button class="key key-ac" onclick="clearEntry()">AC</button>
 
-        <button onclick="append('4')">4</button>
-        <button onclick="append('5')">5</button>
-        <button onclick="append('6')">6</button>
-        <button class="op" onclick="append('*')">×</button>
+            <!-- Row 6: 4 5 6 and Multiply -->
+            <button class="key key-num" onclick="inputChar('4')">4</button>
+            <button class="key key-num" onclick="inputChar('5')">5</button>
+            <button class="key key-num" onclick="inputChar('6')">6</button>
+            <button class="key key-op" onclick="inputChar('×')">×</button>
 
-        <button onclick="append('1')">1</button>
-        <button onclick="append('2')">2</button>
-        <button onclick="append('3')">3</button>
-        <button class="op" onclick="append('-')">−</button>
+            <!-- Row 7: 1 2 3 and Divide -->
+            <button class="key key-num" onclick="inputChar('1')">1</button>
+            <button class="key key-num" onclick="inputChar('2')">2</button>
+            <button class="key key-num" onclick="inputChar('3')">3</button>
+            <button class="key key-op" onclick="inputChar('÷')">÷</button>
 
-        <button onclick="append('0')">0</button>
-        <button onclick="append('.')">.</button>
-        <button class="equal" onclick="calculate()">=</button>
-        <button class="op" onclick="append('+')">+</button>
+            <!-- Row 8: 0 . + - -->
+            <button class="key key-num" onclick="inputChar('0')">0</button>
+            <button class="key key-num" onclick="inputChar('.')">.</button>
+            <button class="key key-op" onclick="inputChar('+')">+</button>
+            <button class="key key-op" onclick="inputChar('−')">−</button>
 
-        <button class="ac" onclick="clearAll()">AC</button>
+            <!-- Row 9: Pi, Ans, Equal (spans 2) -->
+            <button class="key key-fn" onclick="inputChar('π')">π</button>
+            <button class="key key-fn" onclick="recallAns()">Ans</button>
+            <button class="key key-equal" onclick="executeCalculation()">=</button>
+        </div>
     </div>
 </div>
 

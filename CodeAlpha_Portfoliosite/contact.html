@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact | Naveen Kumar S</title>
-  <link rel="stylesheet" href="contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Naveen Kumar S | Get in Touch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
 
-<div class="contact-box">
-  <h2>Contact Me</h2>
+    <div class="glow-orb orb-1"></div>
 
-  <form onsubmit="sendMessage(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+    <div class="contact-wrapper">
+        <a href="index.html" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Portfolio
+        </a>
 
-  <p id="success"></p>
+        <div class="contact-card">
+            <div class="card-header">
+                <span class="eyebrow">REACH OUT</span>
+                <h2>Let's Connect & Collaborate</h2>
+                <p>Have an inquiry, project, or internship opportunity? Drop me a message below!</p>
+            </div>
 
-  <div class="socials">
-    <a href="mailto:naveenkumar2007.dpm@gmail.com">📧 Gmail</a>
-    <a href="https://wa.me/+919788640670">💬 WhatsApp</a>
-    <a href="https://www.instagram.com/__naveen__kumar__s">📸 Instagram</a>
-  </div>
-</div>
+            <form id="contactForm" onsubmit="sendMessage(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="e.g. Alex Morgan" required>
+                </div>
 
-<script src="contact.js"></script>
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" placeholder="e.g. alex@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Hi Naveen, I'd like to discuss an opportunity..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>Send Message</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+
+            <div id="success" class="alert-box"></div>
+
+            <div class="direct-channels">
+                <span class="channels-title">Or connect directly via:</span>
+                <div class="channel-buttons">
+                    <a href="mailto:naveenkumar2007.dpm@gmail.com" class="channel-btn mail">
+                        <span>📧 Email</span>
+                    </a>
+                    <a href="https://wa.me/+919788640670" target="_blank" class="channel-btn whatsapp">
+                        <span>💬 WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/__naveen__kumar__s" target="_blank" class="channel-btn instagram">
+                        <span>📸 Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="contact.js"></script>
 </body>
 </html>

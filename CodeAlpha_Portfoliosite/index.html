@@ -2,143 +2,296 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Naveen Kumar | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #ffffff;
-            min-height: 100vh;
-        }
-
-        header {
-            padding: 30px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 26px;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #00e5ff;
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 80vh;
-            padding: 20px;
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero span {
-            color: #00e5ff;
-        }
-
-        .hero p {
-            max-width: 600px;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #e0e0e0;
-        }
-
-        .buttons a {
-            text-decoration: none;
-            padding: 12px 28px;
-            margin: 10px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: #00e5ff;
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background-color: #00bcd4;
-        }
-
-        .btn-outline {
-            border: 2px solid #00e5ff;
-            color: #00e5ff;
-        }
-
-        .btn-outline:hover {
-            background-color: #00e5ff;
-            color: #000;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-            color: #cccccc;
-        }
-
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 32px;
-            }
-        }
-    </style>
+    <title>Naveen Kumar S | Software & Web Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
-<header>
-    <h1>NAVEEN KUMAR S</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <!-- Ambient background glowing orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
 
-<section class="hero">
-    <h2>Hi, I'm <span>Naveen Kumar</span></h2>
-    <p>
-        A passionate IT student who loves building clean web interfaces,
-        solving coding problems, and continuously learning new technologies.
-    </p>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bracket">&lt;</span>NAVEEN<span class="logo-dot">.</span>DEV<span class="logo-bracket">/&gt;</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Internships</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="contact.html" class="nav-link contact-pill">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="buttons">
-        <a href="portfolio.html" class="btn-primary">View Projects</a>
-        <a href="contact.html" class="btn-outline">Contact Me</a>
-    </div>
-</section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">
+                <span class="pulse-status"></span> Available for Web & Software Opportunities
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Crafting Modern <span class="gradient-text">Web Experiences</span> & Scalable Code
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hello! I am <strong>Naveen Kumar S</strong>, an aspiring Computer Technology student at 
+                        <strong>Chennai Institute of Technology</strong> with a strong foundation in Front-End Web Development, 
+                        Algorithms, and problem-solving.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore Projects
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
 
-<footer>
-    © 2026 Naveen Kumar | Built with ❤️ using HTML & CSS
-</footer>
+                <div class="hero-avatar-wrapper">
+                    <div class="avatar-ring">
+                        <img src="profile.jpg" alt="Naveen Kumar S" class="hero-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Naveen+Kumar&background=00ffd5&color=0f172a&size=256'">
+                    </div>
+                    <div class="avatar-tag">
+                        <span class="tag-title">CGPA</span>
+                        <span class="tag-val">8.40 / 10.0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- About Section -->
+        <section id="about" class="section-card">
+            <div class="section-header">
+                <span class="section-eyebrow">BACKGROUND</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text-col">
+                    <p>
+                        I am dedicated to crafting user-friendly, high-performance web applications with clean, responsive code. 
+                        My journey bridges algorithmic rigor in <strong>C, C++, and Python</strong> with interactive UI design using 
+                        <strong>modern HTML5, CSS3, and JavaScript (ES6+)</strong>.
+                    </p>
+                    <p>
+                        Currently active in industry-oriented virtual internships with <strong>Google AI-ML</strong> and 
+                        <strong>CodeAlpha Front-End Track</strong> to engineer practical real-world solutions.
+                    </p>
+                </div>
+                <div class="about-stats-col">
+                    <div class="stat-box">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Core Frontend Projects</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">8.40</span>
+                        <span class="stat-label">CIT Engineering CGPA</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Industry Internships</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="section-card">
+            <div class="section-header">
+                <span class="section-eyebrow">PROFICIENCY</span>
+                <h2 class="section-title">Technical Toolset</h2>
+            </div>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="tags-cloud">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3 / Flexbox / Grid</span>
+                        <span class="tech-tag">JavaScript (ES6+)</span>
+                        <span class="tech-tag">Responsive Web Design</span>
+                        <span class="tech-tag">DOM Manipulation</span>
+                        <span class="tech-tag">Glassmorphic UI</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming & Problem Solving</h3>
+                    <div class="tags-cloud">
+                        <span class="tech-tag highlight-tag">C</span>
+                        <span class="tech-tag highlight-tag">C++</span>
+                        <span class="tech-tag highlight-tag">Python</span>
+                        <span class="tech-tag highlight-tag">Data Structures</span>
+                        <span class="tech-tag highlight-tag">Git & GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships & Experience -->
+        <section id="experience" class="section-card">
+            <div class="section-header">
+                <span class="section-eyebrow">INDUSTRY EXPOSURE</span>
+                <h2 class="section-title">Internships & Learning</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Jan 2026 – Feb 2026</span>
+                            <span class="timeline-badge">Frontend Track</span>
+                        </div>
+                        <h3 class="timeline-title">CodeAlpha Front End Development Intern</h3>
+                        <p class="timeline-desc">
+                            Engineered modular responsive applications including a high-precision Scientific Calculator, 
+                            interactive glassmorphic Image Gallery with dark/light themes and real-time filtering, 
+                            and a comprehensive developer portfolio.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Jan 2026 – Mar 2026</span>
+                            <span class="timeline-badge">AI & Analytics</span>
+                        </div>
+                        <h3 class="timeline-title">Google AI-ML Virtual Internship</h3>
+                        <p class="timeline-desc">
+                            Acquired hands-on exposure to machine learning workflows, data preprocessing, and algorithm formulation 
+                            under Google-partnered curriculum pathways.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Showcase -->
+        <section id="projects" class="section-card">
+            <div class="section-header">
+                <span class="section-eyebrow">PORTFOLIO WORK</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Scientific Calculator -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">Simulation Web App</span>
+                        <span class="project-status">Live</span>
+                    </div>
+                    <h3 class="project-title">fx-991MS Scientific Calculator</h3>
+                    <p class="project-desc">
+                        A realistic dual-line engineering calculator replicating Casio fx-991MS functionality. 
+                        Features DEG/RAD conversions, trigonometry, powers, logs, sound feedback, and keyboard shortcuts.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript ES6</span>
+                        <span>Web Audio</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../CodeAlpha_Calculator/calculator.html" class="btn-card primary-btn">Launch Calculator</a>
+                        <a href="../CodeAlpha_Calculator/index.html" class="btn-card">Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Image Gallery -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">Media & UI Experience</span>
+                        <span class="project-status">Live</span>
+                    </div>
+                    <h3 class="project-title">Glassmorphic Image Gallery</h3>
+                    <p class="project-desc">
+                        Interactive media showcase featuring curated Unsplash photography across 6 categories, 
+                        dynamic live search, A-Z sorting, dark & light mode toggle, and a responsive lightbox slider.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS Glassmorphism</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../CodeAlpha_Imagegallery/image.html" class="btn-card primary-btn">Launch Gallery</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: E-Commerce Storefront -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">Web Application</span>
+                        <span class="project-status">Concept</span>
+                    </div>
+                    <h3 class="project-title">Modern E-Commerce Storefront</h3>
+                    <p class="project-desc">
+                        Responsive product catalog with category filters, dynamic shopping cart calculation, 
+                        instant item search, and seamless checkout interface.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS Grid</span>
+                        <span>JavaScript</span>
+                        <span>Cart State</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="contact.html" class="btn-card">Request Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section-card">
+            <div class="section-header">
+                <span class="section-eyebrow">ACADEMIC FOUNDATION</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <span class="edu-year">Undergraduate • Current</span>
+                    <h3>Chennai Institute of Technology</h3>
+                    <p class="edu-degree">Bachelor of Technology / Engineering</p>
+                    <div class="edu-score">Cumulative GPA: <strong>8.40 / 10.0</strong></div>
+                </div>
+                <div class="edu-card">
+                    <span class="edu-year">Higher Secondary Certificate</span>
+                    <h3>Thenmalar Higher Secondary School</h3>
+                    <p class="edu-degree">Dharapuram, Tamil Nadu</p>
+                    <div class="edu-score">
+                        <span>12th: <strong>592 / 600</strong></span> • 
+                        <span>11th: <strong>585 / 600</strong></span> • 
+                        <span>10th: <strong>482 / 500</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="footer-container">
+            <p>© 2026 Naveen Kumar S • Crafted with modern semantic HTML & CSS</p>
+            <div class="footer-links">
+                <a href="mailto:naveenkumar2007.dpm@gmail.com">Email</a>
+                <a href="https://wa.me/+919788640670" target="_blank">WhatsApp</a>
+                <a href="https://github.com/Naveenkumar2007cit" target="_blank">GitHub</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
 </body>
 </html>
